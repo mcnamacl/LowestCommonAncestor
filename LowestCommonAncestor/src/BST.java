@@ -11,7 +11,7 @@ class Node
 
 class BST {
     // Recursive function to insert an key into BST
-    public static Node insert(Node root, int key) {
+    public Node insert(Node root, int key) {
         // if the root is null, create a new node an return it
         if (root == null) {
             return new Node(key);
@@ -31,7 +31,7 @@ class BST {
     }
 
     // Iterative function to search a given key in root
-    public static boolean search(Node root, int key) {
+    public boolean search(Node root, int key) {
         // traverse the tree and search for the key
         while (root != null) {
             // if given key is less than the current node, go to left
