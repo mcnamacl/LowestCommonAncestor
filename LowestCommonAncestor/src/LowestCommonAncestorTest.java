@@ -54,9 +54,25 @@ public class LowestCommonAncestorTest {
 
     @Test
     public void testRightBST() {
+        LowestCommonAncestor lca = new LowestCommonAncestor();
+        Node root = null;
+        int[] keys = { 20, 15, 10, 5 };
+        for (int key : keys) {
+            root = lca.binaryTree.insert(root, key);
+        }
+        Node testNode = lca.LCA(root, 5, 10);
+        assertEquals("Lowest Common Ancestor in right BST.", 10, testNode.data);
     }
 
     @Test
     public void testLeftBST(){
+        LowestCommonAncestor lca = new LowestCommonAncestor();
+        Node root = null;
+        int[] keys = { 5, 10, 15, 20 };
+        for (int key : keys) {
+            root = lca.binaryTree.insert(root, key);
+        }
+        Node testNode = lca.LCA(root, 5, 10);
+        assertEquals("Lowest Common Ancestor in left BST.", 5, testNode.data);
     }
 }
