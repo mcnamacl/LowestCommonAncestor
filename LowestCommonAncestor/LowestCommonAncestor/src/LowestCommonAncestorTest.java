@@ -1,15 +1,13 @@
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.*;
 
 public class LowestCommonAncestorTest {
 
     @Test
-    static void testCreateDAG() {
-    }
-
-    @Test
-    static void testAddNode() {
+    static void testCreateAndAddNodeDAG() {
     }
 
     @Test
