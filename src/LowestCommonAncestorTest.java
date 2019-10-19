@@ -12,6 +12,9 @@ public class LowestCommonAncestorTest {
         dag.addEdge(0,1);
         dag.addEdge(0,2);
         ArrayList<Integer> nodes = new ArrayList<>();
+        for(int pcrawl : dag.dag.adjListArray[0]) {
+            nodes.add(pcrawl);
+        }
         assertEquals("1 is adjacent to 0", 1, (int)nodes.get(0));
         assertEquals("2 is adjacent to 1", 2, (int)nodes.get(1));
     }
