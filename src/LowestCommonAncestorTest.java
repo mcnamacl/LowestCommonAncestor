@@ -60,5 +60,8 @@ public class LowestCommonAncestorTest {
 
     @Test
     public void testLCASameNode(){
+        LowestCommonAncestor dag = new LowestCommonAncestor(1);
+        int lcaNode = dag.LCA(dag, 0, 0);
+        assertEquals("The function should return 0 as the LCA of the same node is itself.", 0, lcaNode);
     }
 }
