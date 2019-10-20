@@ -11,20 +11,34 @@ public class LowestCommonAncestorTest {
         LowestCommonAncestor dag = new LowestCommonAncestor(3);
         dag.addEdge(0,1);
         dag.addEdge(0,2);
+        //      0
+        //    /  \
+        //   1    2
         ArrayList<Integer> nodes = new ArrayList<>();
         for(int pcrawl : dag.dag.adjListArray[0]) {
             nodes.add(pcrawl);
         }
-        assertEquals("1 is adjacent to 0", 1, (int)nodes.get(0));
-        assertEquals("2 is adjacent to 1", 2, (int)nodes.get(1));
+        assertEquals("There is an edge between 0 and 1", 1, (int)nodes.get(0));
+        assertEquals("There is an edge between 0 and 2", 2, (int)nodes.get(1));
     }
 
     @Test
     public void testLCANormal(){
-    }
-
-    @Test
-    public void testLCARoot(){
+        LowestCommonAncestor dag = new LowestCommonAncestor(5);
+        dag.addEdge(0,1);
+        dag.addEdge(0,2);
+        dag.addEdge(1,3);
+        dag.addEdge(2,3);
+        dag.addEdge(1,4);
+        //          0
+        //        /  \
+        //      1     2
+        //    /  \   /
+        //   4     3
+        int lcaNode = dag.LCA(dag, 1, 2);
+        assertEquals("The lowest common ancestor should be 0", 0, lcaNode);
+        lcaNode = dag.LCA(dag, 3, 4);
+        assertEquals("The lowest common ancestor should be 1", 1, lcaNode);
     }
 
     @Test
