@@ -11,4 +11,8 @@ public class LowestCommonAncestor {
         // Add an edge from src to dest.
         dag.adjListArray[src].add(dest);
     }
+
+    int LCA(DAG dag, int nodeOne, int nodeTwo){
+        return -1;
+    }
 }

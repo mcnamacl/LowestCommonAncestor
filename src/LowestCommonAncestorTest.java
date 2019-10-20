@@ -35,16 +35,16 @@ public class LowestCommonAncestorTest {
         //      1     2
         //    /  \   /
         //   4     3
-        int lcaNode = dag.LCA(dag, 1, 2);
+        int lcaNode = dag.LCA(dag.dag, 1, 2);
         assertEquals("The lowest common ancestor should be 0", 0, lcaNode);
-        lcaNode = dag.LCA(dag, 3, 4);
+        lcaNode = dag.LCA(dag.dag, 3, 4);
         assertEquals("The lowest common ancestor should be 1", 1, lcaNode);
     }
 
     @Test
     public void testLCAEmptyDAG(){
         LowestCommonAncestor dag = new LowestCommonAncestor(5);
-        int lcaNode = dag.LCA(dag, 1, 2);
+        int lcaNode = dag.LCA(dag.dag, 1, 2);
         assertEquals("The function should return -1 as there is no nodes present.", -1, lcaNode);
     }
 
@@ -54,14 +54,14 @@ public class LowestCommonAncestorTest {
         dag.addEdge(0,1);
         dag.addEdge(1,2);
         dag.addEdge(2, 0);
-        int lcaNode = dag.LCA(dag, 0, 1);
+        int lcaNode = dag.LCA(dag.dag, 0, 1);
         assertEquals("The function should return -1 as the graph is cyclic and therefore invalid.", -1, lcaNode);
     }
 
     @Test
     public void testLCASameNode(){
         LowestCommonAncestor dag = new LowestCommonAncestor(1);
-        int lcaNode = dag.LCA(dag, 0, 0);
+        int lcaNode = dag.LCA(dag.dag, 0, 0);
         assertEquals("The function should return 0 as the LCA of the same node is itself.", 0, lcaNode);
     }
 }
