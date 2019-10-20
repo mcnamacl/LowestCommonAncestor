@@ -43,6 +43,19 @@ public class LowestCommonAncestorTest {
 
     @Test
     public void testLCAEmptyDAG(){
+        LowestCommonAncestor dag = new LowestCommonAncestor(5);
+        int lcaNode = dag.LCA(dag, 1, 2);
+        assertEquals("The function should return -1 as there is no nodes present.", -1, lcaNode);
+    }
+
+    @Test
+    public void testCyclic(){
+        LowestCommonAncestor dag = new LowestCommonAncestor(5);
+        dag.addEdge(0,1);
+        dag.addEdge(1,2);
+        dag.addEdge(2, 0);
+        int lcaNode = dag.LCA(dag, 0, 1);
+        assertEquals("The function should return -1 as the graph is cyclic and therefore invalid.", -1, lcaNode);
     }
 
     @Test
