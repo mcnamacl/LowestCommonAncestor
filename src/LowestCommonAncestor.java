@@ -12,22 +12,20 @@ public class LowestCommonAncestor {
         this.visited = new boolean[noVertices];
     }
 
-    // Adds an edge to an directed graph
-    void addEdge(int src, int dest) {
-        // Add an edge from src to dest.
-        dag.adjListArray[src].add(dest);
-    }
-
     void GetParents(int node , int par){
-        for(int i = 0 ; i < dag.adjListArray[node].size() ; ++i){
+        for(int i = 0 ; i < dag.adjListArray[node].size() ; i++){
             if(dag.adjListArray[node].get(i) != par){
                 parent[dag.adjListArray[node].get(i)] = node ;
+                System.out.println("node: " + node);
                 GetParents(dag.adjListArray[node].get(i), node) ;
             }
         }
+        for (int i = 0; i < parent.length; i++){
+            System.out.println(parent[i]);
+        }
     }
 
-    int LCA(DAG dag, int nodeOne, int nodeTwo){
-        return -1;
+    int LCA(int num, int nodeOne, int nodeTwo){
+        return -1 ;
     }
 }
