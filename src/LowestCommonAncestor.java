@@ -19,6 +19,12 @@ public class LowestCommonAncestor {
     }
 
     void GetParents(int node , int par){
+        for(int i = 0 ; i < dag.adjListArray[node].size() ; ++i){
+            if(dag.adjListArray[node].get(i) != par){
+                parent[dag.adjListArray[node].get(i)] = node ;
+                GetParents(dag.adjListArray[node].get(i), node) ;
+            }
+        }
     }
 
     int LCA(DAG dag, int nodeOne, int nodeTwo){
