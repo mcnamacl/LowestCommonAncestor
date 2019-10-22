@@ -1,19 +1,12 @@
+import org.jgrapht.graph.DefaultEdge;
+import org.jgrapht.graph.DirectedAcyclicGraph;
+
 public class LowestCommonAncestor {
+    
+    DirectedAcyclicGraph<Integer, DefaultEdge> dag;
 
-    DAG dag;
-    int parent[];
-    boolean visited[];
-    int noVertices;
-
-    LowestCommonAncestor(int noVertices) {
-        this.dag = new DAG(noVertices);
-        this.noVertices = noVertices;
-        this.parent = new int[noVertices];
-        this.visited = new boolean[noVertices];
-    }
-
-    void GetParents(int node , int par){
-
+    LowestCommonAncestor() {
+        this.dag = new DirectedAcyclicGraph<>(DefaultEdge.class);
     }
 
     int LCA(int num, int nodeOne, int nodeTwo){
