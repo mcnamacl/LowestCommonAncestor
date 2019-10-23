@@ -1,8 +1,6 @@
 import org.junit.Test;
-
-import java.util.ArrayList;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class LowestCommonAncestorTest {
 
@@ -18,9 +16,6 @@ public class LowestCommonAncestorTest {
         //      0
         //    /  \
         //   1    2
-        ArrayList<Integer> nodes = new ArrayList<>();
-        assertEquals("There is an edge between 0 and 1.", 1, (int)nodes.get(0));
-        assertEquals("There is an edge between 0 and 2.", 2, (int)nodes.get(1));
     }
 
     @Test
@@ -109,13 +104,12 @@ public class LowestCommonAncestorTest {
         }
         dag.dag.addEdge(0,1);
         dag.dag.addEdge(1,2);
-        dag.dag.addEdge(2, 0);
         //      0
         //    /   \
         //   1  -  2
-        int lcaNode = dag.LCA(noVertices, 0, 1);
-        assertEquals("The function should return -1 as the graph is cyclic and therefore invalid.", -1, lcaNode);
-    }
+        assertThrows(IllegalArgumentException.class, () -> {
+            dag.dag.addEdge(2, 0);
+        }, "If an edge is added that will create a cycle, an IllegalArgumentException is thrown.");    }
 
     @Test
     public void testLCASameNode(){

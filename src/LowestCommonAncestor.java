@@ -5,11 +5,12 @@ public class LowestCommonAncestor {
     
     DirectedAcyclicGraph<Integer, DefaultEdge> dag;
 
-    LowestCommonAncestor() {
+    public LowestCommonAncestor() {
         this.dag = new DirectedAcyclicGraph<>(DefaultEdge.class);
     }
 
     int LCA(int num, int nodeOne, int nodeTwo){
+
         return -1 ;
     }
 }
