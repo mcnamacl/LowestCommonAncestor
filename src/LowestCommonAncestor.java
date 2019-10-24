@@ -17,8 +17,22 @@ public class LowestCommonAncestor {
 
         int vAncestor[] = setToArray(vAncestorSet);
         int wAncestor[] = setToArray(wAncestorSet);
-        
-        return -1;
+
+        int vlength = vAncestor.length - 1;
+        int wlength = wAncestor.length - 1;
+
+        int lcaNode = -1;
+
+        for (int i = vlength; i >= 0; i--){
+            for (int j = wlength; j >= 0; j--){
+                System.out.println("v: " + vAncestor[i] + " w: " + wAncestor[j]);
+                if (vAncestor[i] == wAncestor[j]){
+                    lcaNode = vAncestor[i];
+                }
+            }
+        }
+
+        return lcaNode;
     }
 
     int[] setToArray(Set<Integer> set){
