@@ -90,10 +90,10 @@ public class LowestCommonAncestorTest {
 
     @Test
     public void testLCAEmptyDAG(){
-        int noVertices = 2;
         LowestCommonAncestor dag = new LowestCommonAncestor();
-        int lcaNode = dag.LCA(1, 2);
-        assertEquals("The function should return -1 as there is no nodes present.", -1, lcaNode);
+        assertThrows(IllegalArgumentException.class, () -> {
+            dag.LCA(1, 2);
+        }, "The graph does not contain any vertices.");
     }
 
     @Test
