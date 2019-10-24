@@ -113,6 +113,34 @@ public class LowestCommonAncestorTest {
         }, "If an edge is added that will create a cycle, an IllegalArgumentException is thrown.");    }
 
     @Test
+    public void testCyclicLarge(){
+        int noVertices = 10;
+        LowestCommonAncestor dag = new LowestCommonAncestor();
+        for (int i = 0; i < noVertices; i++){
+            dag.dag.addVertex(i);
+        }
+        dag.dag.addEdge(0,1);
+        dag.dag.addEdge(0,2);
+        dag.dag.addEdge(1,3);
+        dag.dag.addEdge(2,3);
+        dag.dag.addEdge(1,4);
+        dag.dag.addEdge(4,5);
+        dag.dag.addEdge(4,6);
+        dag.dag.addEdge(3,7);
+        dag.dag.addEdge(2,8);
+        dag.dag.addEdge(3,9);
+        //          0
+        //        /  \
+        //      1     2
+        //    /  \   / \
+        //   4     3    8
+        //  / \   / \
+        // 5   6 9   7
+        assertThrows(IllegalArgumentException.class, () -> {
+            dag.dag.addEdge(7, 3);
+        }, "If an edge is added that will create a cycle, an IllegalArgumentException is thrown.");    }
+
+    @Test
     public void testLCASameNode(){
         int noVertices = 1;
         LowestCommonAncestor dag = new LowestCommonAncestor();
@@ -149,7 +177,7 @@ public class LowestCommonAncestorTest {
         //    /  \
         //  1     2
         int lcaNode = dag.LCA(0, 1);
-        //assertEquals("The function should return 0 as that is the LCA of 0 and 1.", 0, lcaNode);
+        assertEquals("The function should return 0 as that is the LCA of 0 and 1.", 0, lcaNode);
         lcaNode = dag.LCA(1, 2);
         assertEquals("The function should return 0 as that is the LCA of 1 and 2.", 0, lcaNode);
     }
