@@ -25,7 +25,6 @@ public class LowestCommonAncestor {
 
         for (int i = vlength; i >= 0; i--){
             for (int j = wlength; j >= 0; j--){
-                //System.out.println("v: " + vAncestor[i] + " w: " + wAncestor[j]);
                 if (vAncestor[i] == wAncestor[j]){
                     return vAncestor[i];
                 }
