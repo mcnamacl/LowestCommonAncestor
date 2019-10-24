@@ -130,8 +130,10 @@ public class LowestCommonAncestorTest {
         for (int i = 0; i < noVertices; i++){
             dag.dag.addVertex(i);
         }
-        int lcaNode = dag.LCA(0, 1);
-        assertEquals("The function should return -1 as there is only one node.", -1, lcaNode);
+        assertThrows(IllegalArgumentException.class, () -> {
+            dag.LCA(0, 1);
+        }, "There is only one node and so there is no way of getting the LCA of a node and a node that does" +
+                " not exist.");
     }
 
     @Test
