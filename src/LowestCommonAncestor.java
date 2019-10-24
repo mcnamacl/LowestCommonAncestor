@@ -4,7 +4,7 @@ import org.jgrapht.graph.DirectedAcyclicGraph;
 import java.util.Set;
 
 public class LowestCommonAncestor {
-    
+
     DirectedAcyclicGraph<Integer, DefaultEdge> dag;
 
     public LowestCommonAncestor() {
@@ -12,16 +12,22 @@ public class LowestCommonAncestor {
     }
 
     int LCA(int v, int w) {
-        Set<Integer> firstAncestors = dag.getAncestors(v);
-        Set<Integer> secondAncestors = dag.getAncestors(w);
+        Set<Integer> vAncestorSet = dag.getAncestors(v);
+        Set<Integer> wAncestorSet = dag.getAncestors(w);
+
+        int vAncestor[] = setToArray(vAncestorSet);
+        int wAncestor[] = setToArray(wAncestorSet);
+        
         return -1;
     }
 
-    public int digraphVertexDepth(int root, int vertex) {
-        return -1;
-    }
-
-    int digraphVertexDepthRecursive(int currentVertex, int targetVertex, int depth){
-        return -1;
+    int[] setToArray(Set<Integer> set){
+        int[] setArray = new int[set.size()];
+        int index = 0;
+        for (int vNode : set){
+            setArray[index] = vNode;
+            index++;
+        }
+        return setArray;
     }
 }
