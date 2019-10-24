@@ -35,7 +35,7 @@ public class LowestCommonAncestorTest {
         //      1     2
         //    /  \   /
         //   4     3
-        dag.LCA(4,3);
+//        dag.LCA(4,3);
 //        int lcaNode;
 //        assertEquals("The lowest common ancestor should be 0.", 0, lcaNode);
 //
